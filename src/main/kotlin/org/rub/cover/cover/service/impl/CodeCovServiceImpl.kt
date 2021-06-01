@@ -1,7 +1,10 @@
 package org.rub.cover.cover.service.impl
 
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+import com.fasterxml.jackson.module.kotlin.readValue
 import org.jacoco.core.tools.ExecDumpClient
 import org.jacoco.core.tools.ExecFileLoader
+import org.rub.cover.cover.entity.Demo
 import org.rub.cover.cover.service.CodeCovService
 import org.slf4j.LoggerFactory
 import java.io.File
@@ -29,6 +32,9 @@ class CodeCovServiceImpl : CodeCovService {
      *
      */
     private fun mergeExec(ExecFiles: List<String>, NewFileName: String) {
+        val mapper = jacksonObjectMapper()
+        val json =""
+        val movieList: List<Demo> = mapper.readValue(json)
         val execFileLoader = ExecFileLoader()
         try {
             for (ExecFile in ExecFiles) {
